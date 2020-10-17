@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>코린이의 그림일기</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 17 Oct 2020 14:36:03 +0900</pubDate>
+    <lastBuildDate>Sat, 17 Oct 2020 14:36:03 +0900</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>DSFT01, Section01, About Covid-19</title>
+        <description>&lt;h3 id=&quot;abstract&quot;&gt;Abstract&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Covid-19 발생 이후 사회는 많은 변화가 생겼습니다. 그래서 Covid-19 시리즈를 진행하게 되었습니다.&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;del&gt;그래프들로 인해 페이지 로딩이 길어질 수 있습니다. 최선을 다해 빨리 자라서 최적화를 할 수 있도록 하겠습니다. &lt;/del&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이번 첫 번째 시리즈에서는 궁금하지만 알 수 없었던 부분에 대해 Covid-19 데이터 분석의 시각화를 하여, 각각 나라별로 Covid-19 감염 확진자에 대한 변화를 비교합니다.&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;다음 시리즈부터는 원인, 영향을 줄만한 대상과 상관관계를 측정합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/95680893-b37c9700-0c17-11eb-8063-17da37eb38aa.jpeg&quot; alt=&quot;95525436-151de500-0a0f-11eb-9866-89e9a0701ae9&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;solo-project-1-about-covid-19-201011&quot;&gt;Solo Project 1. about Covid-19 [~20.10.11]&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Covid-19 가 시작되고 어느덧 몇 개월, 낯설었던 마스크 쓰기와 사회적 거리두기는 점차 사회에 녹아들어 하나의 생존 방법이 되었습니다.&lt;/li&gt;
+  &lt;li&gt;각종 국내외 매체에서 한국의 대처에 대해 칭찬이 쏟아지자 하나의 궁금증이 생겼습니다.
+    &lt;h3 id=&quot;우리나라와-전-세계를-비교했을-때--어떤-차이가-있을까&quot;&gt;”우리나라와 전 세계를 비교했을 때  어떤 차이가 있을까?”&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;del&gt;해외 매체에 취한 필자는 주모를 부르며 시작합니다.&lt;/del&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/95680932-fa6a8c80-0c17-11eb-9b79-20bf9ab8c8c6.png&quot; alt=&quot;e_5006689773_468461774701430d5ec3b47c1be79a5aaca1e551&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dataset&quot;&gt;Dataset&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;현재 데이터 셋 자료에 있는 정보는 ‘국가, 확진/사망/퇴원 시기’입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1-select-dataset&quot;&gt;1) select dataset&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;서울시에서 공개한 코로나19 발생동향 분석 &lt;br /&gt;http://www.seoul.go.kr/coronaV/coronaStatus.do
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/95680946-19691e80-0c18-11eb-8150-7f0e95ac86d7.png&quot; alt=&quot;(COVID-19)&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-select-dataset&quot;&gt;2) select dataset&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;WHO 에서 발표한 COVID19 자료 &lt;br /&gt; https://github.com/laxmimerit/Covid-19-Preprocessed-Dataset/&lt;/li&gt;
+  &lt;li&gt;CORD-19 research challenge &lt;br /&gt; https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/tasks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+      function open_div(pin){
+        if(document.getElementById(&quot;frame_view_chk&quot;)){
+            document.getElementById(&quot;frame_view_chk&quot;).parentNode.removeChild(document.getElementById(&quot;frame_view_chk&quot;));
+        }else{
+          if(pin == &quot;Casesovertime01&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;800px&quot; height=&quot;800px&quot; src=&quot;/include_page/Casesovertime01.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;100_Cases_subplots&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;100%&quot; height=&quot;600px&quot; src=&quot;/include_page/100_Cases_subplots.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Confirmed_Death_Static_Colormap&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;1000px&quot; height=&quot;400px&quot; src=&quot;/include_page/Confirmed_Death_Static_Colormap.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;first_last&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;1000px&quot; height=&quot;600px&quot; src=&quot;/include_page/first_last.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;bar&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;600px&quot; height=&quot;500px&quot; src=&quot;/include_page/bar.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;100_Cases&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;1000px&quot; height=&quot;450px&quot; src=&quot;/include_page/100_Cases.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Confirmed_sum&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;600px&quot; src=&quot;/include_page/Confirmed_sum.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Tree_Map_Confirmedcase&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;600px&quot; src=&quot;/include_page/Tree_Map_Confirmedcase.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Each_Country&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;1000px&quot; height=&quot;1200px&quot; src=&quot;/include_page/Each_Country.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Deaths_sum&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;600px&quot; src=&quot;/include_page/Deaths_sum.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Tree_Map_Deathscase&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;600px&quot; src=&quot;/include_page/Tree_Map_Deathscase.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Recovered_sum&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;600px&quot; src=&quot;/include_page/Recovered_sum.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;NewCases_sum&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;600px&quot; src=&quot;/include_page/NewCases_sum.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Deaths_scatter&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;800px&quot; height=&quot;600px&quot; src=&quot;/include_page/Deaths_scatter.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;Top15_Countries&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;600px&quot; src=&quot;/include_page/Top15_Countries.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;other_Each_Country&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;100%&quot; height=&quot;600px&quot; src=&quot;/include_page/other_Each_Country.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;k_treemap_file&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;250px&quot; src=&quot;/include_page/k_treemap_file.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;plot_file&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;400px&quot; src=&quot;/include_page/plot_file.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;temp_area_file&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;400px&quot; src=&quot;/include_page/temp_area_file.html&quot;&gt;&lt;/iframe&gt;';
+          }
+          else if(pin == &quot;treemap_file&quot;){
+            document.getElementById(pin).innerHTML='&lt;iframe id=&quot;frame_view_chk&quot; width=&quot;900px&quot; height=&quot;200px&quot; src=&quot;/include_page/treemap_file.html&quot;&gt;&lt;/iframe&gt;';
+          }
+
+        }
+
+      }
+&lt;/script&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;eda--및-사전-점검-진행&quot;&gt;EDA  및 사전 점검 진행&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;한국 데이터 정리
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/95681034-98f6ed80-0c18-11eb-85c0-fd533e60dd72.png&quot; alt=&quot;day count day count == day count max()&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;전세계 데이터 정리
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/95681048-a6ac7300-0c18-11eb-9c88-4b19ddea5c1f.png&quot; alt=&quot;load the dataset&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;이해를-위한-시각화&quot;&gt;이해를 위한 시각화&lt;/h2&gt;
+&lt;h3 id=&quot;the-latest-covid-19-in-korea-south&quot;&gt;&lt;span onclick=&quot;open_div('k_treemap_file');&quot;&gt;[The latest Covid-19 in Korea, South]&lt;/span&gt;&lt;/h3&gt;
+&lt;div id=&quot;k_treemap_file&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;한국의-월별-확진자수에-대한-빈도수&quot;&gt;한국의 월별 확진자수에 대한 빈도수&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;382&quot; alt=&quot;알 수 없음&quot; src=&quot;https://user-images.githubusercontent.com/70356749/95681066-c3e14180-0c18-11eb-91a5-4144f6d12f19.png&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;한국의-확진-일자별--선그래프&quot;&gt;한국의 확진 일자별  선그래프&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;878&quot; alt=&quot;M t WarinMnaty&quot; src=&quot;https://user-images.githubusercontent.com/70356749/95681085-df4c4c80-0c18-11eb-8c02-d2465da2df12.png&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;세계적으로-발생한-covid-19&quot;&gt;세계적으로 발생한 Covid-19&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;전세계를 기준으로 시각화를 했을 경우&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;시간-흐름에-따라-새로운-확진자가-국가-별로-발생되는데-걸린-과정&quot;&gt;시간 흐름에 따라 새로운 확진자가 국가 별로 발생되는데 걸린 과정&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('100_Cases_subplots');&quot;&gt;[New Cases and No.of Countries]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;100_Cases_subplots&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;점차 모든 국가로 퍼저나가는 그래프를 볼 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;시간-흐름으로-보는-전세계의-covid-19-현황&quot;&gt;시간 흐름으로 보는 전세계의 Covid-19 현황&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('plot_file');&quot;&gt;[선그래프]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;plot_file&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('temp_area_file');&quot;&gt;[선과 Treemap 그래프]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;temp_area_file&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('treemap_file');&quot;&gt;[Treemap 그래프]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;treemap_file&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Casesovertime01');&quot;&gt;[지도 그래프]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Casesovertime01&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Deaths_scatter');&quot;&gt;[Scatter Plot for Deaths vs Confirmed Cases]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Deaths_scatter&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;covid-19의-사망률은&quot;&gt;Covid-19의 사망률은?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;자세히 보면 ‘확진  = 사망’ 이 아니라는 것을 알 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;서로 다른 곡선의 모양인 ‘확진과 사망 그래프’&lt;/li&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Confirmed_Death_Static_Colormap');&quot;&gt;[시간 흐름에 따라 나라별 발생 횟수(Confirmed_Death_Static_Colormap)]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Confirmed_Death_Static_Colormap&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('bar');&quot;&gt;[bar]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;bar&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;&lt;요약본&gt;&lt;/요약본&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;100개의-케이스로-요약을-할-경우&quot;&gt;100개의 케이스로 요약을 할 경우&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('100_Cases');&quot;&gt;[per 100 Cases]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;100_Cases&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;수많은-국가-중에-어느-나라가-top-15-일까&quot;&gt;수많은 국가 중에 어느 나라가 Top 15 일까?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Top15_Countries');&quot;&gt;[Top 15 Countries case Analysis]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Top15_Countries&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;국가별--비율은&quot;&gt;국가별  비율은?&lt;/h2&gt;
+&lt;h3 id=&quot;바그래프&quot;&gt;바그래프&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Confirmed_sum');&quot;&gt;[Confirmed]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Confirmed_sum&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Deaths_sum');&quot;&gt;[Deaths]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Deaths_sum&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Recovered_sum');&quot;&gt;[Recovered]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Recovered_sum&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('NewCases_sum');&quot;&gt;[New Cases]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;NewCases_sum&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;tree-map&quot;&gt;Tree Map&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Tree_Map_Confirmedcase');&quot;&gt;[Confirmed]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Tree_Map_Confirmedcase&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('Tree_Map_Deathscase');&quot;&gt;[Deaths]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;Tree_Map_Deathscase&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;confirmed-cases-country-and-day-wise&quot;&gt;&lt;span onclick=&quot;open_div('Each_Country');&quot;&gt;[Confirmed Cases Country and Day wise]&lt;/span&gt;&lt;/h3&gt;
+&lt;div id=&quot;Each_Country&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;각각-국가의-발생-시기적으로-비교했을-때&quot;&gt;각각 국가의 발생 시기적으로 비교했을 때&lt;/h2&gt;
+&lt;h3 id=&quot;국가별로-코로나-시작-날짜는&quot;&gt;국가별로 코로나 시작 날짜는?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('first_last');&quot;&gt;[first_last]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;first_last&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;covid-19-vs-other-similar-epidemics&quot;&gt;Covid-19 vs Other Similar Epidemics&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span onclick=&quot;open_div('other_Each_Country');&quot;&gt;[other_Each_Country]&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;other_Each_Country&quot; class=&quot;div_chk&quot;&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;covid-19와-국가는-서로-상관-관계가-있을-까&quot;&gt;Covid-19와 국가는 서로 상관 관계가 있을 까?&lt;/h2&gt;
+&lt;h3 id=&quot;chi2_contingency를-통한-상관-관계-확인&quot;&gt;chi2_contingency를 통한 상관 관계 확인&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Country 와 Confirmed
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/95681097-f3904980-0c18-11eb-9e45-3cb001b54c9a.png&quot; alt=&quot;from scipy  stats import chi2 contingency&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Country 와 Deaths
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/95681101-0014a200-0c19-11eb-819b-b0293841f4f6.png&quot; alt=&quot;print(chi2_contingency(dep_fest-&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Country 와 Recovered
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/95681108-03a82900-0c19-11eb-89c3-c323cd01e692.png&quot; alt=&quot;# N2 771 95&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;결론-&quot;&gt;결론 :&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;상관관계가 있다고 나왔을 뿐, 포괄적인 의미에서 정치적이든, 유전적이든, 바이러스 환경이든 원인은 아직 알 수 없다.&lt;br /&gt;
+다만 국가와 Covid-19 사이에 상관관계가 있는 만큼 다른 영향, 반응들이 있지 않은지 지속적인 관찰이 필요하다고 판단된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;그래서-지속적으로-국가별-관계에-대해-글을-작성할-예정이다&quot;&gt;그래서 지속적으로 국가별 관계에 대해 글을 작성할 예정이다.&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;+)사설, 처음에는 다른 데이터넷으로 하려했는데… ㅠㅠㅠㅠ
+&lt;img width=&quot;1592&quot; alt=&quot;image&quot; src=&quot;https://user-images.githubusercontent.com/70356749/95551002-ddca2b00-0a44-11eb-8276-5e4c44e54028.png&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 08 Oct 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020-10/start_-Study_DS</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-10/start_-Study_DS</guid>
+        
+        
+        <category>Study</category>
+        
+      </item>
+    
+      <item>
+        <title>pages에 업로드하는 방법을 연습해보자</title>
+        <description>&lt;p&gt;파일을 여러개 해두면 연습하기 쉬울까&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Sep 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020-09/start_today</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-09/start_today</guid>
+        
+        
+        <category>Diary</category>
+        
+      </item>
+    
+      <item>
+        <title>다이어리 테스트글...</title>
+        <description>&lt;p&gt;다이어리 테스트글…&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Sep 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020-09/start_Diary</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-09/start_Diary</guid>
+        
+        
+        <category>Diary</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll_기존내용테스트</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.md&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 06 Sep 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020-09/start_Diary-2</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-09/start_Diary-2</guid>
+        
+        
+        <category>Diary</category>
+        
+      </item>
+    
+      <item>
+        <title>Development에 글을 시작하면</title>
+        <description>&lt;p&gt;글이 시작이 되는건지 테스트를 해보자, 카테고리는 생성이 되나?&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Sep 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020-09/start_Development</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-09/start_Development</guid>
+        
+        
+        <category>Development</category>
+        
+      </item>
+    
+      <item>
+        <title>데이터 테스트글...</title>
+        <description>&lt;p&gt;테이터 카테고리를 시작하며&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Sep 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020-09/start_Data</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-09/start_Data</guid>
+        
+        
+        <category>Data</category>
+        
+      </item>
+    
+      <item>
+        <title>Git, GitHub에 대해 배워보자</title>
+        <description>&lt;p&gt;&lt;strong&gt;해당 내용은 유튜브를 보고 정리를 해놨습니다.&lt;/strong&gt;
+출처 : https://youtu.be/Bd35Ze7-dIw&lt;/p&gt;
+
+&lt;h2 id=&quot;beginners-curiositygit-github에-대해-배워보자&quot;&gt;[beginner’s curiosity]Git, GitHub에 대해 배워보자&lt;/h2&gt;
+&lt;p&gt;개발자 입장에서 피할수없다는 Git! 도데체, Git, Github 무엇인가요?&lt;/p&gt;
+
+&lt;h2 id=&quot;git-이-필요한-이유&quot;&gt;Git 이 필요한 이유&lt;/h2&gt;
+&lt;h3 id=&quot;1-버전관리&quot;&gt;1. 버전관리&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;소프트웨어라는게 만드는 과정, 운영하는과정에서도 계속 해서 무언가 더하고 고치고 빼고 하는 수정사항들이 발생됨&lt;/li&gt;
+  &lt;li&gt;근데, 나중에 이전 기능이 다시 필요할 수도 있고, 누가 실수로 잘못된 코드를 섞어서 이전 데이터를 복원해야할 떄도 있음&lt;/li&gt;
+  &lt;li&gt;그리고 이러한 내용들을 확인하기위해 코드가 어디가 어떻게 바뀌었는지, 과거 내역을 확인해야 할 수도 있죠.&lt;/li&gt;
+  &lt;li&gt;그렇기 때문에 중간중간 자료를 저장해놔야하는데, 만약 Git 없이 그냥 파일로서 저장을 한다면 곂쳐지는 데이터들이 있음에도 각각의 저장을 하게됨. ( 나중에 언제 필요할지 모르니깐…)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-협업&quot;&gt;2. 협업&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;작은 프로젝트는 혼자서도 개발하지만, 대부분의 프로젝트는 개발자들이 여러명이서 협업을 하게됩니다.&lt;/li&gt;
+  &lt;li&gt;소프트웨어 프로젝트라는게 보통 폴더 통째로 있어야 테스트를 진행하는데, 보통 개발자들끼리 일정부분부역을 나눠서 코드 작성진행을 하게됨&lt;/li&gt;
+  &lt;li&gt;그래서 테스트를 하기위해 메일이라던지, 클라우드라던지 파일을 주고 받게 된다면 골치아픈 상황이 발생될수있음&lt;/li&gt;
+  &lt;li&gt;또한 이런 상황은 누가 언제 어디를 어떻게 건들었는지 확인하기가 어려워 뒷처리를 마무리하기도 힘들게 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;이론&quot;&gt;이론&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. 정의: 리누스 토르발스가 개발한 분산형 버전 관리 시스템(VCS).&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Git 자체는 오픈 소스&lt;/li&gt;
+  &lt;li&gt;저장소는 https://github.com/git/git&lt;/li&gt;
+  &lt;li&gt;라이선스는 GPL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;~Git 영어단어 뜻 : 재수없고 멍청한 놈, 자식~&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Git과 Git-hub차이는?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;git-hub는 git을 사용하는 프로젝트를 지원하는 웹호스팅 서비스&lt;/li&gt;
+  &lt;li&gt;git은 컴퓨터 파일의 변경사항을 추적하고 여러 명의 사용자들 간에 해당 파일들의 작업을 조율하기 위한 분산 버전 관리 시스템&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 만들게 된 배경&lt;/strong&gt;
+리누스 토발즈는 리눅스 커널을 관리하는 기존 툴이 엉망인 것에 화가나 Git을 제작 하게되었다.
+특히, 리누스는 하도 많이 화가난 나머지, 단 2주만에 완성을 하였다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. beginner의 기본 단어 확인&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;커맨드 라인(Command Line) : git 명령어를 입력할 때 사용하는 컴퓨터 프로그램. 맥에선 터미널&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;저장소(Repository): 프로젝트가 살(live) 수 있는 디렉토리나 저장 공간&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;버전관리(Version Control) : 기본적으로, 깃이 서비스되도록 고안된 목적&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;커밋(Commit) : 깃에게 파워를 주는명령어로, 무슨 일을 했다는 메모를 남기는 기능&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;브랜치(Branch) : 작업자의 메인 프로젝트의 브랜치를 따와서(branch off), 자신이 변경하고 싶은 자신만의 버전을 만든다. 작업을 끝낸 후, 프로젝트의 메인 디렉토리인 “master”에 브랜치를 다시 “Merge”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;5. beginner의 기본 명령어 확인&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;git init : 깃 저장소를 초기화&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git config : “configure”의 준말, 처음에 깃을 설정할 때 가장 유용&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git help : 21개의 가장 많이 사용하는 깃 명령어 소환&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git status : 저장소 상태를 체크. 어떤 화일이 저장소 안에 있는지, 커밋이 필요한 변경사항이 있는지, 현재 저장소의 어떤 브랜치에서 작업하고 있는지 확인&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git add : 파일을 추가하면, 깃의 저장소 “스냅샷”에 포함(저장소에 새 파일들을 추가 안함)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git commit : 깃의 가장 중요한 명령어&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git branch : 여러 협업자와 작업하기 위해 자신만의 변경으로 자주 사용&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git checkout : 글자 그대로, 현재 위치하고 있지 않은 저장소를 “체크아웃”할 수 있다&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git merge : 브랜치에서 작업을 끝내고, 모든 협업자가 볼 수 있는 master 브랜치로 병합할 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git push : 깃허브에 변경사항을 “push”한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git pull : 깃허브로부터 변경사항을 다운로드한다(“pull”).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;5. 예시를 갖고 설명을 해보자면&lt;/strong&gt;
+Git을 이용한 프로젝트라면
+프로젝트를 만들 때 만든 파일들이 다 담긴 프로젝트 폴더가 있음
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd (폴더 디렉토리)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;그 폴더에서 git을 시작하면 지금부터 이 폴더의 모든 수정 내역들이 저장되는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.git&lt;/code&gt;이라는 폴더가 생김
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Git init&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;백업을 위해, 백업에 포함할 파일들을 모두 설정하고  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git add -A&lt;/code&gt;
+이 시점까지는 이러이러한 작업을 진행했다 하는 말을 남깁니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit -m &quot;(작업 수행 내용)” &lt;/code&gt;
+그러면 이 폴더의 전체 내용들이 박제가됨, 이후에도 프로젝트에 의미있는 변화가 있을 때마다 이 작업을 해두면 압축파일로 저장할 때 처럼 전체가 따로 복사가 되는게 아니라 각 버전의 변경사항들만 기록되는거라서 용량을 많이 차지하거나 하지 않음&lt;/p&gt;
+
+&lt;p&gt;그리고 만약, 수정사항이 번복되거나 문제가 발생되서 이전 내역을 확인해야한다면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git logs&lt;/code&gt; 를 통해 지금까지 박제 내역을 확인 한 다음
+박재되었던 과거로 복원을 하면 됩니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git reset — hard 3r8da0&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;3r8da0는 로그이름
+그러면 수정된 내역들은 복원되고 , 새로 만든 파일들은 삭제, 지웠던 파일들은 복구가 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;또한 ‘이 기능을 넣을까 말까,’ 하는 다른 가능성의 길을 가지치기를 통해 진행할 수 도 있음
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch “(브랜치명)”&lt;/code&gt;
+ 만약 브랜치 내용을 적용해도 괜찮을 때는 합칠수도 있습니다.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge “(브랜치명)” &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;즉, git은 버전 관리를 위한 [소프트웨어] 이고, github은 이 git으로 저장되서 워격 전송된 내역들이  저장되는 공간을 제공하는 서비스! (커피와 커피숍같은 관계)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. 시작하기 : github.com 가입&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;참고-자료&quot;&gt;참고 자료&lt;/h2&gt;
+&lt;p&gt;https://ko.wikipedia.org/wiki/
+https://nolboo.kim/blog/2013/10/06/github-for-beginner/&lt;/p&gt;
+
+&lt;h3 id=&quot;추후-git-사용법에-대한-실기는-사진과-함께-2부작으로-연재를-하겠습니다&quot;&gt;추후 git 사용법에 대한 실기는 사진과 함께 2부작으로 연재를 하겠습니다.&lt;/h3&gt;
+
+&lt;h2 id=&quot;실기&quot;&gt;실기&lt;/h2&gt;
+&lt;h3 id=&quot;jekyll--github-pages-블로그-시작하기feat삽질의-시작&quot;&gt;Jekyll + GitHub Pages 블로그 시작하기(&lt;em&gt;feat.삽질의 시작)&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;필자는 공부를 위해 Git, GitHub에대해 알아보던 도중, 잘못된 길을 보았고 그렇게 8시간의 시간이 흘렀다.&lt;/em&gt;&lt;/strong&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/92236384-47a85f80-eef0-11ea-9986-60ee6d9e8928.png&quot; alt=&quot;$ gem install bundler jekyll&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;+) 나름 처음에는 글에 도움될려고 초안도 만들었는데…&lt;/em&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/92236499-7e7e7580-eef0-11ea-86a3-651cc134d25a.png&quot; alt=&quot;1*yWuhgXwwGZFZbbFE1GG0bw&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/92236504-7fafa280-eef0-11ea-8f32-9b6e2da57fd7.png&quot; alt=&quot;1*hNAHOM0-SVCoBUbXSJ1SKQ&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;비록 초보자지만 8시간동안 아무리 구글링을 해도 진행이 안되었다는점&lt;/strong&gt;
+&lt;strong&gt;그리고 무서운 경고 메세지들로 우선 Stop&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;주말에 도움을 요청하여 다시 시도해보기로 하였다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/70356749/92236552-9b1aad80-eef0-11ea-91a0-e5d4395944e9.png&quot; alt=&quot;There isn't a GitHub Pages site here&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;to be continue
+주말동안 최선을 다해볼게요…&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Sep 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020-09/start_-Study2</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-09/start_-Study2</guid>
+        
+        
+        <category>Study</category>
+        
+      </item>
+    
+      <item>
+        <title>Study항목 테스트글...</title>
+        <description>&lt;p&gt;Study 항목에 글을 올리는 테스트 글…&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Sep 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020-09/start_-Study</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-09/start_-Study</guid>
+        
+        
+        <category>Study</category>
+        
+      </item>
+    
+      <item>
+        <title>Some articles are just so long they deserve a really long title to see if things will break well</title>
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 04 Jul 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-07/t1</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-07/t1</guid>
+        
+        
+        <category>travel</category>
+        
+      </item>
+    
+      <item>
+        <title>Sample Post</title>
+        <description>&lt;p&gt;This is a sample post.&lt;br /&gt;
+&lt;dfn info=&quot;You can add extra information&quot;&gt;Hover&lt;/dfn&gt; me.&lt;/p&gt;
+
+&lt;h2 id=&quot;header&quot;&gt;Header&lt;/h2&gt;
+
+&lt;h1 id=&quot;head-1-&quot;&gt;Head 1: ‘#’&lt;/h1&gt;
+&lt;h2 id=&quot;head-2-&quot;&gt;Head 2: ‘##’&lt;/h2&gt;
+&lt;h3 id=&quot;head-3-&quot;&gt;Head 3: ‘###’&lt;/h3&gt;
+
+&lt;h2 id=&quot;code-block&quot;&gt;Code block&lt;/h2&gt;
+&lt;p&gt;A Python Example:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;quote&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Socrates
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'The only true wisdom is in knowing you know nothing.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;A HTML Example:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;quote&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Maya Angelou --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Try to be a rainbow in someone's cloud.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A C Example:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Confucius&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Everything has beauty, but not everyone sees it.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 01 Nov 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2017-11/s2</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-11/s2</guid>
+        
+        
+        <category>writing</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.md&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 24 Oct 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2017-10/welcome</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-10/welcome</guid>
+        
+        
+        <category>dev</category>
+        
+      </item>
+    
+  </channel>
+</rss>

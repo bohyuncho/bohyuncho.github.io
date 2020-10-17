@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 17 Oct 2020 14:36:03 +0900</pubDate>
-    <lastBuildDate>Sat, 17 Oct 2020 14:36:03 +0900</lastBuildDate>
+    <pubDate>Sat, 17 Oct 2020 17:41:40 +0900</pubDate>
+    <lastBuildDate>Sat, 17 Oct 2020 17:41:40 +0900</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -335,7 +335,7 @@
       </item>
     
       <item>
-        <title>pages에 업로드하는 방법을 연습해보자</title>
+        <title>pages에 업로드하는 방법 연습 중</title>
         <description>&lt;p&gt;파일을 여러개 해두면 연습하기 쉬울까&lt;/p&gt;
 </description>
         <pubDate>Sun, 06 Sep 2020 00:00:00 +0900</pubDate>
